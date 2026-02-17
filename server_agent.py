@@ -3,7 +3,7 @@ from uagents import Agent, Context, Protocol, Model
 from langchain_groq import ChatGroq
  
 CHAT_MODEL = "openai/gpt-oss-120b"
-# fill api val
+# fill api value
 GROQ_API_KEY = ""
  
 agent = Agent(name="groq_agent",
