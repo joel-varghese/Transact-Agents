@@ -1,10 +1,14 @@
 from pydantic import BaseModel, Field
 from uagents import Agent, Context, Protocol, Model
 from langchain_groq import ChatGroq
- 
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv() 
 CHAT_MODEL = "openai/gpt-oss-120b"
 # fill api value
-GROQ_API_KEY = ""
+GROQ_API_KEY = os.getenv('GROQ_API_KEY')
  
 agent = Agent(name="groq_agent",
               seed="<moltbook_style",

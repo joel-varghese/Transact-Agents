@@ -1,6 +1,6 @@
 from datetime import datetime
 from uuid import uuid4
- 
+from dotenv import load_dotenv
 from openai import OpenAI
 from uagents import Context, Protocol, Agent
 from uagents_core.contrib.protocols.chat import (
@@ -10,7 +10,7 @@ from uagents_core.contrib.protocols.chat import (
     TextContent,
     chat_protocol_spec,
 )
- 
+import os
  
 ### Example Expert Assistant
  
@@ -20,14 +20,16 @@ from uagents_core.contrib.protocols.chat import (
 ## a more complete agentic system.
  
 # the subject that this assistant is an expert in
+ASI_API_KEY = os.getenv('ASI_API_KEY')
+
 subject_matter = "Anime"
- 
+load_dotenv()
 client = OpenAI(
     # By default, we are using the ASI:One LLM endpoint and model
     base_url='https://api.asi1.ai/v1',
  
     # You can get an ASI:One api key by creating an account at https://asi1.ai/dashboard/api-keys
-    api_key='sk_d826c2be24b4465090f8b577259bd04d8fe32583989c4d0c8379393e119234ee',
+    api_key=ASI_API_KEY,
 )
  
 agent = Agent(
